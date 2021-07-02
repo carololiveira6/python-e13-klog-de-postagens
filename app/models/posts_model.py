@@ -10,7 +10,7 @@ class KlogPosts(db.Model):
     title = db.Column(db.String(50), nullable=False)
     text = db.Column(db.String(300), nullable=False)
 
-     def __str__(self):
+    def __str__(self):
         return f"<{self.name} - {self.id}>"
 
     def __repr__(self):
