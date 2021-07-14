@@ -27,14 +27,15 @@ def return_form():
 @bp.route("/api/posts", methods=["GET, POST"])
 def post_get_form():
     
-    form_data = request.get_json()
+    if request.method == "POST":
+        form_data = request.get_json()
 
-    posts = KlogPosts(**form_data)
+        posts = KlogPosts(**form_data)
 
-    db.session.add(posts)
-    db.session.commit()
+        db.session.add(posts)
+        db.session.commit()
 
-    return "Oi"
+        return "Oi"
 
 @bp.route("/api/posts/<post_id>", methods=["GET"])
 def post_by_id(post_id):
